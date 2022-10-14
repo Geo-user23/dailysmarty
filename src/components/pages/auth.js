@@ -1,0 +1,11 @@
+import React, { Component, component } from 'react';
+
+export default class Auth extends Component {
+    render() {
+        return (
+         <div>
+            auth......
+         </div>
+        );
+    }
+}
