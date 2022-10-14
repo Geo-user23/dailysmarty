@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import Login from "../auth/login";
 
 export default class Auth extends Component {
   render() {
@@ -10,7 +10,7 @@ export default class Auth extends Component {
         />
 
         <div className="right-column">
-          <h1>Login component goes here...</h1>
+          <Login/>
         </div>
       </div>
     );
