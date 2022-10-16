@@ -17,9 +17,9 @@ export default class PortfolioManager extends Component {
   }
 
   handleSuccessfulFormSubmission(portfolioItem) {
-    //TODO
-    //update portfolioItem state
-    // add portfolioItem to list
+   this.setState({
+    portfolioItem: [portfolioItem].contcat(this.state.portfolioItems)
+   });
   }
 
   handleFormSubmissionError(error) {
@@ -28,7 +28,7 @@ export default class PortfolioManager extends Component {
 
   getPortfolioItems() {
     axios
-      .get("https://jovanirodriguez.devcamp.space/portfolio/portfolio_items", {
+      .get("https://jovanirodriguez.devcamp.space/portfolio/portfolio_items?order_by=created_at&direction=desc", {
         withCredentials: true
       })
       .then(response => {
