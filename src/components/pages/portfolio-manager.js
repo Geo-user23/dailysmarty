@@ -90,4 +90,4 @@ export default class PortfolioManager extends Component {
       </div>
     );
   }
-}     
+}
