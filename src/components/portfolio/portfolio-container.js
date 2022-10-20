@@ -8,7 +8,6 @@ export default class PortfolioContainer extends Component {
     super();
 
     this.state = {
-      pageTitle: "Welcome to my portfolio",
       isLoading: false,
       data: []
     };
