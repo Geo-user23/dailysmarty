@@ -19,28 +19,32 @@ export default class BlogModal extends Component {
         width: "800px"
       },
       overlay: {
-        backgroundcolor: "rgba(1, 1, 1, 0.75)"
+        backgroundColor: "rgba(1, 1, 1, 0.75)"
       }
     };
 
-    this.handleSuccessfullFormSubmission = this.handleSuccessfullFormSubmission.bind(this);
+    this.handleSuccessfullFormSubmission = this.handleSuccessfullFormSubmission.bind(
+      this
+    );
   }
 
   handleSuccessfullFormSubmission(blog) {
-    console.log("blog from blog form", blog);
+    this.props.handleSuccessfulNewBlogSubmission(blog);
   }
 
   render() {
     return (
-      <ReactModal 
-      style={this.customStyles}
-      onRequestClose={() => {
-        this.props.handleModalClose();
-      }} isOpen={this.props.modalIsOpen}>
-        
-
-        <BlogForm handleSuccessfullFormSubmission={this.handleSuccessfullFormSubmission}/>
-      </ReactModal >
+      <ReactModal
+        style={this.customStyles}
+        onRequestClose={() => {
+          this.props.handleModalClose();
+        }}
+        isOpen={this.props.modalIsOpen}
+      >
+        <BlogForm
+          handleSuccessfullFormSubmission={this.handleSuccessfullFormSubmission}
+        />
+      </ReactModal>
     );
   }
 }

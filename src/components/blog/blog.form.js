@@ -14,8 +14,7 @@ export default class BlogForm extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-
-  buildForm(){
+  buildForm() {
     let formData = new FormData();
 
     formData.append("portfolio_blog[title]", this.state.title);
@@ -25,15 +24,25 @@ export default class BlogForm extends Component {
   }
 
   handleSubmit(event) {
-    axios.post("https://jovanirodriguez.devcamp.space/portfolio/portfolio_blogs",
-     this.buildForm(),
-    {withCredentials: true}
-    ).then(response => {
-    this.props.handleSuccessfullFormSubmission(response.data);
-    }).catch(error => {
-        console.log("handleSubmit for blog error", error)
-    });
+    axios
+      .post(
+        "https://jovanirodriguez.devcamp.space/portfolio/portfolio_blogs",
+        this.buildForm(),
+        { withCredentials: true }
+      )
+      .then(response => {
+        this.props.handleSuccessfullFormSubmission(
+          response.data.portfolio_blog
+        );
 
+        this.setState({
+          title: "",
+          blog_status: ""
+        });
+      })
+      .catch(error => {
+        console.log("handleSubmit for blog error", error);
+      });
 
     event.preventDefault();
   }
@@ -46,7 +55,7 @@ export default class BlogForm extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit} className="blog-form-wrapper">
         <input
           type="text"
           onChange={this.handleChange}
@@ -63,7 +72,7 @@ export default class BlogForm extends Component {
           value={this.state.blog_status}
         />
 
-        <button>Save</button>
+        <button className="btn">Save</button>
       </form>
     );
   }
