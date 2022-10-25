@@ -62,7 +62,7 @@ const NavigationComponent = props => {
         ) : null}
       </div>
 
-      <div className="right-side">el geo
+      <div className="right-side"> geo
 
         {props.loggedInStatus === "LOGGED_IN" ?
          <a onClick={handleSignOut}>
